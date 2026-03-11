@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap");
+
+:root {
+  --ink-900: #1a2732;
+  --ink-700: #2e4558;
+  --ink-500: #557187;
+  --highlight: #ff8c42;
+  --panel: rgba(255, 255, 255, 0.86);
+  --panel-border: rgba(255, 255, 255, 0.6);
+  --shadow: rgba(29, 49, 67, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: "Sora", sans-serif;
+  color: var(--ink-900);
+  background:
+    radial-gradient(circle at 15% 14%, #fff6dc 0%, rgba(255, 246, 220, 0) 34%),
+    radial-gradient(circle at 88% 22%, #d5ecff 0%, rgba(213, 236, 255, 0) 41%),
+    linear-gradient(128deg, #f3ecdd 0%, #e6eef3 55%, #dce4ea 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      115deg,
+      rgba(255, 255, 255, 0.14) 0%,
+      rgba(255, 255, 255, 0) 35%,
+      rgba(149, 184, 205, 0.12) 100%
+    );
+}
+
+#app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#viewer {
+  position: absolute;
+  inset: 0;
+}
+
+#viewer canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#hud {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: min(24rem, calc(100vw - 2rem));
+  padding: 0.9rem 1rem;
+  border-radius: 0.9rem;
+  border: 1px solid var(--panel-border);
+  background: var(--panel);
+  box-shadow: 0 0.8rem 2rem var(--shadow);
+  backdrop-filter: blur(6px);
+  z-index: 3;
+}
+
+#hud h1 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+#hud p {
+  margin: 0.25rem 0 0;
+  font-size: 0.82rem;
+  color: var(--ink-700);
+}
+
+#stats {
+  margin-top: 0.65rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--ink-900);
+}
+
+#hint {
+  margin-top: 0.35rem;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  color: var(--ink-500);
+}
+
+.lil-gui {
+  --background-color: rgba(255, 255, 255, 0.93);
+  --title-background-color: rgba(20, 42, 57, 0.08);
+  --widget-color: rgba(19, 49, 71, 0.08);
+  --hover-color: rgba(255, 140, 66, 0.24);
+  --focus-color: rgba(255, 140, 66, 0.33);
+  --number-color: #2d4860;
+  --string-color: #2d4860;
+  --text-color: #1d2f3b;
+  --font-family: "IBM Plex Mono", monospace;
+  z-index: 4;
+}
+
+.lil-gui.root {
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 0.8rem 2rem var(--shadow);
+  border-radius: 0.8rem;
+  overflow: hidden;
+}
+
+.lil-gui .title {
+  font-weight: 500;
+  letter-spacing: 0.03em;
+}
+
+@media (max-width: 760px) {
+  #hud {
+    left: 0.65rem;
+    top: 0.65rem;
+    width: calc(100vw - 1.3rem);
+    padding: 0.75rem 0.85rem;
+  }
+
+  .lil-gui.root {
+    width: min(20rem, calc(100vw - 1.3rem));
+    right: 0.65rem;
+    top: auto;
+    bottom: 0.65rem;
+    max-height: 58vh;
+  }
+}
