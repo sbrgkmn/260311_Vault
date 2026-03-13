@@ -1,4 +1,4 @@
-import { buildTopology, cloneMesh, computeBounds, getVertexCount } from "./mesh.js";
+import { buildTopology, getVertexCount } from "./mesh.js";
 
 function clamp(value, min, max) {
   return Math.min(max, Math.max(min, value));
@@ -27,8 +27,8 @@ function pickStepValue(values, index, fallback) {
   return values[values.length - 1];
 }
 
-function getStepParameters(params, passIndex, totalPasses) {
-  const mode = String(params.recursionPattern || "ramp");
+export function getStepParameters(params, passIndex, totalPasses) {
+  const mode = String(params.recursionPattern || "cascade");
   const depth = Math.max(1, totalPasses);
   const t = depth > 1 ? passIndex / (depth - 1) : 0;
 
@@ -71,32 +71,23 @@ function getStepParameters(params, passIndex, totalPasses) {
     };
   }
 
+  if (mode === "cascade") {
+    const primaryShape = Math.pow(1 - t, 0.72);
+    const refinementShape = Math.pow(t, 0.88);
+    return {
+      displacement: mix(dispEnd, dispStart, primaryShape),
+      evaluationPoints: Math.max(2, Math.round(mix(evalStart, evalEnd, refinementShape))),
+      axialWeight: mix(axialEnd, axialStart, primaryShape),
+      archExponent: mix(archStart, archEnd, refinementShape),
+    };
+  }
+
   return {
     displacement: mix(dispStart, dispEnd, t),
     evaluationPoints: Math.max(2, Math.round(mix(evalStart, evalEnd, t))),
     axialWeight: mix(axialStart, axialEnd, t),
     archExponent: mix(archStart, archEnd, t),
   };
-}
-
-function computeFieldZ(x, y, bounds, step) {
-  const nx = (x - bounds.centerX) / (bounds.spanX * 0.5);
-  const ny = (y - bounds.centerY) / (bounds.spanY * 0.5);
-  const ux = Math.abs(nx);
-  const uy = Math.abs(ny);
-  const major = Math.max(ux, uy);
-  const minor = Math.min(ux, uy);
-
-  const points = step.evaluationPoints;
-  const majorFreq = 0.4 + points * 0.11;
-  const minorFreq = 0.58 + points * 0.14;
-  const majorSample = Math.round(major * points) / points;
-  const minorSample = Math.round(minor * points) / points;
-  const axialWave = Math.cos(majorSample * Math.PI * majorFreq);
-  const diagonalWave = Math.cos(minorSample * Math.PI * minorFreq);
-  const wave = axialWave * step.axialWeight + diagonalWave * (1 - step.axialWeight);
-  const arch = Math.max(0, 1 - Math.pow(major, step.archExponent));
-  return step.displacement * 0.34 * arch * wave;
 }
 
 export function laplacianSmooth(mesh, iterations, strength = 0.35) {
@@ -156,36 +147,6 @@ export function laplacianSmooth(mesh, iterations, strength = 0.35) {
   };
 }
 
-function transformMesh(mesh, params, step, blend) {
-  const next = cloneMesh(mesh);
-  const bounds = computeBounds(mesh);
-  const positions = next.positions;
-
-  for (let i = 0; i < positions.length; i += 3) {
-    const x = positions[i];
-    const y = positions[i + 1];
-    const z = positions[i + 2];
-    const targetZ = z + computeFieldZ(x, y, bounds, step);
-    positions[i + 2] = mix(z, targetZ, blend);
-  }
-
-  const smoothingIterations = Math.max(0, Math.round(Number(params.smoothingIterations)));
-  if (smoothingIterations > 0) {
-    return laplacianSmooth(next, smoothingIterations, 0.26);
-  }
-
-  return next;
-}
-
-export function applyRecursiveTransform(mesh, params, passIndex, totalPasses) {
-  if (totalPasses <= 0) return mesh;
-  const step = getStepParameters(params, passIndex, totalPasses);
-  return transformMesh(mesh, params, step, 1);
-}
-
-export function applyFinalTransform(mesh, params) {
-  const depth = Math.max(0, Math.round(Number(params.recursionDepth)));
-  if (depth > 0) return mesh;
-  const step = getStepParameters(params, 0, 1);
-  return transformMesh(mesh, params, step, 1);
+export function applyFinalTransform(mesh) {
+  return mesh;
 }

@@ -21,8 +21,8 @@ export function generateBaseVault(params) {
   const halfWidth = baseWidth * 0.5;
   const baseTriangles = clampBaseTriangleCount(params.baseTriangles);
 
-  const centerLift = vaultHeight;
-  const edgeLift = vaultHeight * 0.58;
+  const centerLift = vaultHeight * 0.34;
+  const edgeLift = vaultHeight * 0.08;
 
   const positions = [centerX, centerY, centerLift];
   for (let i = 0; i < baseTriangles; i += 1) {
@@ -31,7 +31,7 @@ export function generateBaseVault(params) {
     const localX = Math.abs(x - centerX);
     const localY = Math.abs(y - centerY);
     const midpointInfluence = 1 - Math.min(localX, localY) / halfWidth;
-    const z = edgeLift * Math.pow(midpointInfluence, 1.65);
+    const z = edgeLift * Math.pow(midpointInfluence, 2.1);
     positions.push(x, y, z);
   }
 

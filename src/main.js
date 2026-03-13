@@ -1,6 +1,6 @@
 import { generateBaseVault } from "./vaultGenerator.js";
 import { subdivideRecursive } from "./subdivision.js";
-import { applyFinalTransform, applyRecursiveTransform } from "./transform.js";
+import { applyFinalTransform } from "./transform.js";
 import { createViewer } from "./viewer.js";
 import { createUI } from "./ui.js";
 import {
@@ -15,19 +15,19 @@ const defaultParams = {
   vaultHeight: 9,
   baseTriangles: 8,
   recursionDepth: 4,
-  smoothingIterations: 1,
+  smoothingIterations: 0,
   maxFaces: 260000,
-  recursionPattern: "ramp",
-  displacementStart: 0.12,
-  displacementEnd: 0.52,
-  evaluationStart: 8,
-  evaluationEnd: 18,
-  axialWeightStart: 0.55,
-  axialWeightEnd: 0.32,
-  archExponentStart: 1.6,
-  archExponentEnd: 2.25,
-  customDisplacementPattern: "0.12,0.24,0.36,0.5,0.62",
-  customEvaluationPattern: "8,10,12,15,18",
+  recursionPattern: "cascade",
+  displacementStart: 0.62,
+  displacementEnd: 0.12,
+  evaluationStart: 4,
+  evaluationEnd: 14,
+  axialWeightStart: 0.72,
+  axialWeightEnd: 0.44,
+  archExponentStart: 1.35,
+  archExponentEnd: 2.05,
+  customDisplacementPattern: "0.62,0.42,0.28,0.18,0.12",
+  customEvaluationPattern: "4,6,8,11,14",
   shaded: true,
   wireframe: true,
   showRecursion: false,
@@ -47,13 +47,8 @@ function formatNumber(value) {
 
 function buildVault() {
   const baseMesh = generateBaseVault(params);
-  const recursive = subdivideRecursive(
-    baseMesh,
-    params,
-    (mesh, passIndex, passCount) =>
-      applyRecursiveTransform(mesh, params, passIndex, passCount),
-  );
-  const finalMesh = applyFinalTransform(recursive.mesh, params);
+  const recursive = subdivideRecursive(baseMesh, params);
+  const finalMesh = applyFinalTransform(recursive.mesh);
   currentMesh = finalMesh;
   viewer.setMesh(finalMesh, params);
 

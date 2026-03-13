@@ -35,6 +35,7 @@ export function createUI(initialParams, handlers) {
   const pattern = gui.addFolder("Step Pattern");
   const patternController = pattern
     .add(params, "recursionPattern", {
+      Cascade: "cascade",
       Constant: "constant",
       Ramp: "ramp",
       Pulse: "pulse",

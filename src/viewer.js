@@ -72,7 +72,7 @@ export function createViewer(container) {
     2000,
   );
   camera.up.set(0, 0, 1);
-  camera.position.set(0, -20, 15);
+  camera.position.set(-14, -18, 13);
 
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -154,7 +154,11 @@ export function createViewer(container) {
 
     const radius = Math.max(size.x, size.y, size.z, 1);
     controls.target.copy(center);
-    camera.position.set(center.x, center.y - radius * 1.7, center.z + radius * 1.15);
+    camera.position.set(
+      center.x - radius * 0.95,
+      center.y - radius * 1.55,
+      center.z + radius * 1.02,
+    );
     camera.near = Math.max(0.01, radius * 0.01);
     camera.far = radius * 40;
     camera.updateProjectionMatrix();
