@@ -1,0 +1,26 @@
+:root { color-scheme:light; --ink:#111; --paper:#fff; --line:#d8d8d8; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--paper); color:var(--ink); font-family:'Trebuchet MS',sans-serif; }
+header { display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin:40px 40px 48px; }
+.eyebrow { font:10px 'Consolas',monospace; text-transform:uppercase; letter-spacing:.18em; margin:0 0 13px; }
+h1 { font:normal 48px/1 'Palatino Linotype','Book Antiqua',serif; letter-spacing:-.035em; margin:0; }
+.actions { display:flex; align-items:center; gap:24px; }
+.actions a,.actions button { color:var(--ink); font:11px 'Consolas',monospace; background:none; }
+.actions a { text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:5px; }
+.actions button { cursor:pointer; border:1px solid var(--ink); padding:10px 15px; }
+.actions button:disabled { opacity:.4; cursor:wait; }
+main { margin:0 40px 28px; }
+.drawing-title { display:flex; justify-content:space-between; gap:24px; border-top:1px solid var(--ink); padding-top:12px; font:10px 'Consolas',monospace; letter-spacing:.04em; }
+.sheet-scroll { overflow-x:auto; }
+#sheet { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:12px; min-width:850px; padding:24px 0 32px; }
+figure { margin:0; min-width:0; }
+.model { height:clamp(270px,29vw,400px); background:white; }
+.model canvas { display:block; width:100%; height:100%; }
+figcaption { display:flex; justify-content:space-between; align-items:baseline; border-top:1px solid var(--line); padding-top:13px; margin:0 8px; }
+.step-number { font:24px 'Palatino Linotype','Book Antiqua',serif; }
+.step-faces { color:#666; font:9px 'Consolas',monospace; }
+footer { display:flex; justify-content:space-between; flex-wrap:wrap; gap:15px; border-top:1px solid var(--ink); padding-top:15px; font:9px 'Consolas',monospace; letter-spacing:.04em; }
+#status { font:11px 'Consolas',monospace; }
+:focus-visible { outline:2px solid black; outline-offset:4px; }
+@media(max-width:700px) { header { margin:26px 18px 30px; align-items:flex-start; flex-direction:column; } h1 { font-size:40px; } main { margin:0 18px 24px; } .drawing-title { flex-direction:column; gap:6px; } .model { height:340px; } }
+@media print { .actions,#status { display:none; } header { margin:20px 0 25px; } main { margin:0; } #sheet { min-width:0; } .model { height:340px; } @page { size:A3 landscape; margin:15mm; } }

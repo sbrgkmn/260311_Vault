@@ -1,0 +1,8 @@
+{
+  "name": "260311-vault",
+  "private": true,
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "test": "node --test serial/*.test.mjs"
+  }
+}

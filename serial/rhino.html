@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>260311_Vault</title>
+<link rel="stylesheet" href="./diagram.css"><link rel="stylesheet" href="./rhino.css">
+<script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script></head>
+<body><header><div><p class="eyebrow">260311_Vault / Recursive form studies</p><h1>Vault rules.</h1></div><span>A / terracotta &nbsp; B / blue &nbsp; C / olive</span></header>
+<main><div class="controls">
+<label>Vault type<select id="type"></select></label>
+<label id="variant-field">Rhino seed<select id="variant"><option value="1">Asymmetric / t = 0.60</option><option value="0">Midpoint / t = 0.50</option></select></label>
+<label>Recursion depth <output id="depth-value">3</output><input id="depth" type="range" min="0" max="5" step="1" value="3"></label>
+<label>Seed rise <output id="rise-value"></output><input id="rise" type="range" min="0.5" max="3.5" step="0.01" value="2.19"></label>
+<label>Decay <output id="decay-value"></output><input id="decay" type="range" min="0.4" max="1.2" step="0.01" value="1"></label>
+<label>Assembly<select id="assembly"><option value="vault">Two bays</option><option value="bay">One bay</option><option value="quarter">Quarter</option></select></label>
+<button id="reset">Reset type</button><button id="reset-view">Reset views</button><button id="obj">Export OBJ</button></div>
+<p id="type-note" class="method"></p>
+<p class="formula">P = (1 - t) A + t B + (0, lift &times; edge length &times; decay<sup>step - 1</sup>, 0)</p>
+<p class="orbit-help">Drag either top model to orbit / wheel to zoom / right-drag to pan. Depth 0 shows the seed.</p>
+<section class="comparison"><figure><div id="source" class="large-model"></div><figcaption>Face families / quarter / <span class="selected-step"></span></figcaption></figure><figure><div id="generated" class="large-model"></div><figcaption>Assembled vault / <span class="selected-step"></span></figcaption></figure></section>
+<p id="error" role="status">Loading...</p>
+<section class="grammar" aria-label="Face rules and inheritance">
+<h2>Face rules &amp; inheritance</h2>
+<p>Each face uses one rule on its three edges. Choose which rules its four children use in the next pass. Different rules operate together, in the same generation.</p>
+<div class="rule-scroll"><table><thead><tr><th>Parent rule</th><th>Edge position t</th><th>Signed lift</th><th>Corner 1 child</th><th>Corner 2 child</th><th>Corner 3 child</th><th>Centre child</th></tr></thead><tbody id="rule-rows"></tbody></table></div>
+<p class="hint">Children follow the parent's stored vertex order; centre joins the three new edge points. Shared edges average incident families' t and lift in one common direction. A/B/C are editable labels, not fixed signs.</p>
+<h3>Seed face assignments</h3><p class="hint">Click a numbered triangle to cycle A/B/C, or change its selector.</p>
+<div class="seed-editor"><svg id="seed-map" viewBox="-12 -12 124 124" aria-label="Numbered seed triangles"></svg><div id="seed-rules"></div></div>
+</section>
+<div class="drawing-title"><span>Five recursive passes / worm's-eye view</span><span>Black form / white triangle edges</span></div>
+<div class="sheet-scroll"><section id="sheet" aria-label="Five recursive steps"></section></div>
+<details><summary>Method and reference fidelity</summary><p>Tierceron II uses the recovered Rhino seed and directed subdivision connectivity. Its all-A default reproduces the measured length-based rule. Edited rules produce new studies. Quadripartite, sexpartite, tierceron and stellar presets use distinct procedural seeds, not verified reconstructions of the reference models.</p><p>Four mirrored quarters form each bay. Every face splits into four children; family assignments determine subsequent development. Colours show the families assigned to the selected generation; they act on its edges in the next pass.</p><p>Rhino objects are not explicitly named Tierceron_2. That title remains a visual attribution. Original files and earlier studies are retained on disk.</p></details>
+</main><script type="module" src="./rhino.js"></script></body></html>
