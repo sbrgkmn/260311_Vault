@@ -139,7 +139,8 @@ export function createViewer(container, { compact = false, onCameraChange, view 
         }
       }
     }
-    const lineGeometry = new THREE.BufferGeometry().setAttribute('position', new THREE.Float32BufferAttribute(lines, 3));
+    // Historical studies keep semantic ribs separate from the envelope's mesh tessellation.
+    const lineGeometry = new THREE.BufferGeometry().setAttribute('position', new THREE.Float32BufferAttribute(mesh.ribSegments || lines, 3));
     wire = new THREE.LineSegments(lineGeometry, wireMaterial);
     // Draw every triangle edge after the black surface, keeping hidden-line occlusion.
     if (diagram) wire.renderOrder = 1;
@@ -168,7 +169,9 @@ export function createViewer(container, { compact = false, onCameraChange, view 
     surface.material = faceFamilies || highlight && !diagram ? signedMaterial : material;
     wire.visible = mode !== 'clay';
     wireMaterial.color.setHex(diagram ? 0xffffff : mode === 'wire' ? 0xc7d2cd : 0x30434b);
-    wireMaterial.opacity = diagram ? .6 : mode === 'wire' ? .66 : (data.level > 3 ? .25 : .42);
+    // Keep every edge, but avoid whitening the surface when facets become subpixel.
+    const diagramOpacity = data.ribSegments ? .6 : Math.min(.6,.6*Math.sqrt(1200/Math.max(1,data.faces.length/3)));
+    wireMaterial.opacity = diagram ? diagramOpacity : mode === 'wire' ? .66 : (data.level > 3 ? .25 : .42);
     wireMaterial.transparent = true;
     wireMaterial.depthWrite = !diagram;
     wireMaterial.toneMapped = !diagram;
