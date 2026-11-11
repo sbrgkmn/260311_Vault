@@ -77,26 +77,16 @@ export function assembleTriangles(quarter,p){
   }
   return {...quarter,positions,faces,types,births,offsets,structuralEdges:quarter.structuralEdges?[...structural.values()]:undefined,moves:[]};
 }
-export function trianglePlan(mesh,params,{axes=true,shade=true,structure=false}={}){
-  const staggered=CASE_BY_ID[params.id].shape.kind==='staggered';
+export function trianglePlan(mesh,params){
   const w=280,h=w*params.aspect*params.bays,x=v=>20+(v+1)*w/2,y=v=>20+(v+params.aspect*params.bays)*w/2,edges=new Set(),lines=[];
   for(let f=0;f<mesh.faces.length;f+=3)for(let e=0;e<3;e++){
     const a=mesh.faces[f+e],b=mesh.faces[f+(e+1)%3],k=key(a,b);if(edges.has(k))continue;edges.add(k);
     lines.push(`M${x(mesh.positions[a*3])},${y(mesh.positions[a*3+2])}L${x(mesh.positions[b*3])},${y(mesh.positions[b*3+2])}`);
   }
-  const ribs=structure&&mesh.structuralEdges?.length?`<path data-layer="plan-constraints" d="${mesh.structuralEdges.map(([a,b])=>`M${x(mesh.positions[a*3])},${y(mesh.positions[a*3+2])}L${x(mesh.positions[b*3])},${y(mesh.positions[b*3+2])}`).join(' ')}" fill="none" stroke="#343b32" stroke-width="0.9"/>`:'';
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 ${h+40}" role="img" aria-label="${params.id} triangular plan, ${mesh.faces.length/3} flat faces"><rect x="20" y="20" width="280" height="${h}" fill="white"/>${shade&&!staggered?`<rect x="20" y="20" width="140" height="${140*params.aspect}" fill="#e8e5d5"/>`:''}<g fill="none" stroke="#343b32" stroke-width="0.9" stroke-linejoin="round" stroke-linecap="round"><path data-edge-count="${edges.size}" d="${lines.join(' ')}"/></g>${ribs}${axes&&staggered?`<circle cx="160" cy="${20+h/2}" r="7" fill="none" stroke="#b34c40"/><text x="171" y="${18+h/2}" font-size="12" fill="#b34c40">180° seed</text>`:''}${axes&&!staggered?`<path d="M160 10 V${h+30} ${Array.from({length:params.bays},(_,i)=>`M10 ${20+(i+.5)*params.aspect*w} H310`).join(' ')}" stroke="#b34c40" stroke-dasharray="5 4" stroke-width="1"/>`:''}</svg>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 ${h+40}" role="img" aria-label="${params.id} triangular plan, ${mesh.faces.length/3} flat faces"><rect x="20" y="20" width="280" height="${h}" fill="white"/><g fill="none" stroke="#111" stroke-width=".6" stroke-linejoin="round" stroke-linecap="round"><path data-edge-count="${edges.size}" d="${lines.join(' ')}"/></g></svg>`;
 }
-
 export function symmetryPlan(params){
-  const p=triangleParameters({...params,bays:1,depth:0}),quarter=seed(p),full=assembleTriangles(quarter,p);
-  if(p.id==='lincoln')return trianglePlan(full,p,{axes:true,shade:false,structure:false});
-  const h=280*p.aspect,qh=h/2,x=v=>20+140*v,y=v=>20+140*v;
-  const paths=[];
-  for(let f=0;f<quarter.faces.length;f+=3){
-    const ids=quarter.faces.slice(f,f+3);paths.push(`<polygon points="${ids.map(i=>`${x(quarter.positions[i*3])},${y(quarter.positions[i*3+2])}`).join(' ')}" fill="${['#e6e2cc','#cbd9d7','#ece7db','#d5dfd0'][f/3%4]}" stroke="#253b37" stroke-width="1.8"/>`);
-    const cx=ids.reduce((s,i)=>s+x(quarter.positions[i*3]),0)/3,cy=ids.reduce((s,i)=>s+y(quarter.positions[i*3+2]),0)/3;
-    paths.push(`<text x="${cx}" y="${cy}" text-anchor="middle" dominant-baseline="middle" fill="#253b37" font-family="Georgia,serif" font-size="21">${String.fromCharCode(65+f/3)}</text>`);
-  }
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 ${h+40}" role="img" aria-label="${p.id} quadrant symmetry folds"><rect x="20" y="20" width="280" height="${h}" fill="#fafaf8" stroke="#c7cbc4"/>${paths.join('')}<path d="M160 10V${h+30}M10 ${20+qh}H310" fill="none" stroke="#b34c40" stroke-dasharray="6 5" stroke-width="1.8"/><circle cx="20" cy="20" r="3.5" fill="#253b37"/></svg>`;
+  const p=triangleParameters({...params,bays:1,depth:0}),full=assembleTriangles(seed(p),p);
+  const svg=trianglePlan(full,p).replace('stroke-width=".6"','stroke-width="1.15"');
+  return p.id==='lincoln'?svg:svg.replace(/aria-label="[^"]+"/,`aria-label="${p.id} quadrant symmetry folds"`);
 }

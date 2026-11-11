@@ -46,7 +46,7 @@ test('plan serializes the same triangle edges and clamps unsafe input',()=>{
 test('atlas covers all sixteen PDF entries with explicit source status',()=>{assert.equal(VAULT_CASES.length,16);assert.equal(new Set(VAULT_CASES.map(c=>c.id)).size,16);for(const c of VAULT_CASES){assert.ok(SOURCE_IMAGES[c.id]);assert.ok(['survey','photo','generated'].includes(SOURCE_IMAGES[c.id].status));assert.ok(c.page>=1&&c.page<=8);}assert.equal(VAULT_CASES.filter(c=>c.id.startsWith('gloucester')).length,3);});
 test('Lincoln retains a full-bay stagger instead of mirror assembly',()=>{const {params,stages:[m]}=triangleStudy({id:'lincoln',depth:0});assert.equal(m.domain,'bay');assert.equal(m.faces.length/3,6);const full=assembleTriangles(m,params);assert.equal(full.faces.length,m.faces.length);const edgeKey=(a,b)=>[a,b].sort().join('|');const point=i=>m.positions.slice(i*3,i*3+3).map(v=>Math.abs(v)<1e-8?0:v).join(',');const edges=new Set([...edgesOf(m).keys()].map(k=>{const [a,b]=k.split(':').map(Number);return edgeKey(point(a),point(b));}));for(const k of edgesOf(m).keys()){const [a,b]=k.split(':').map(Number),rotate=i=>{const [x,y,z]=m.positions.slice(i*3,i*3+3);return [-x,y,-z].map(v=>Math.abs(v)<1e-8?0:v).join(',');};assert.ok(edges.has(edgeKey(rotate(a),rotate(b))));}});
 
-test('paper atlas contains primary quadrant folds and sixteen developed plans',()=>{const svg=atlasPlanSVG();assert.equal((svg.match(/quadrant symmetry folds/g)||[]).length,15);assert.equal((svg.match(/data-edge-count=/g)||[]).length,17);for(const c of VAULT_CASES)assert.ok(svg.includes(c.name));assert.ok(!svg.includes('<image'));});
+test('paper atlas contains primary quadrant folds and sixteen developed plans',()=>{const svg=atlasPlanSVG();assert.equal((svg.match(/quadrant symmetry folds/g)||[]).length,15);assert.equal((svg.match(/data-edge-count=/g)||[]).length,32);for(const c of VAULT_CASES)assert.ok(svg.includes(c.name));assert.ok(!svg.includes('<image'));});
 
 test('colour sources replace PDF crops and stay within portrait bay bounds',()=>{for(const s of Object.values(SOURCE_IMAGES)){assert.ok(!s.file.startsWith('review-'));assert.ok(s.url.startsWith('https://')||s.url.startsWith('./assets/history/'));const [x,y,w,h]=s.crop;assert.ok(x>=0&&y>=0&&x+w<=s.width&&y+h<=s.height);assert.ok((s.rotation||0)%180?w>=h:h>=w);assert.ok(s.credit&&s.rights);}});
 
@@ -72,8 +72,8 @@ test('first plan division stays inside its primary triangles and has no crossing
     }
   }
 });
-test('symmetry diagrams retain a coarse labelled quadrant and fan plans have distinct origins',()=>{
-  for(const id of ['ely','wells','kings','sherborne','gloucester-net']){const svg=symmetryPlan({id});assert.ok(svg.includes('>A</text>'));assert.ok(svg.includes('>B</text>'));assert.ok(!svg.includes('>C</text>'));}
+test('symmetry diagrams retain an unlabeled monochrome seed and distinct fan origins',()=>{
+  for(const id of ['ely','wells','kings','sherborne','gloucester-net']){const svg=symmetryPlan({id});assert.ok(!svg.includes('<text'));assert.ok(svg.includes('stroke="#111"'));}
   const s=triangleStudy({id:'westminster',depth:0}).stages[0];assert.equal(s.faces.length/3,2);
   for(const id of ['kings','sherborne','gloucester']){
     const s=triangleStudy({id,depth:1}).stages[1];const origin=s.positions.findIndex((v,i)=>i%3===0&&Math.abs(v)<1e-8&&Math.abs(s.positions[i+2])<1e-8)/3;

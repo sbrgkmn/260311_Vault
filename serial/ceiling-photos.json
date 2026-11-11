@@ -1,0 +1,181 @@
+{
+  "reims": {
+    "file": "commons/reims.jpg",
+    "title": "Reims,_cathedral,_the_vault.JPG",
+    "credit": "Dguendel",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Reims,_cathedral,_the_vault.JPG",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/6/6d/Reims%2C_cathedral%2C_the_vault.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "description": "Reims, cathedral, the vault",
+    "accessed": "2026-11-11"
+  },
+  "amiens": {
+    "file": "commons/amiens.jpg",
+    "title": "Voutes,_nef,_rosace_ouest_et_grandes_orgues_de_la_cathédrale_Notre-Dame_d'Amiens,_France_-_20080125-02.jpg",
+    "credit": "Florestan.",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Voutes,_nef,_rosace_ouest_et_grandes_orgues_de_la_cath%C3%A9drale_Notre-Dame_d%27Amiens,_France_-_20080125-02.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/2/25/Voutes%2C_nef%2C_rosace_ouest_et_grandes_orgues_de_la_cath%C3%A9drale_Notre-Dame_d%27Amiens%2C_France_-_20080125-02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "description": "Vaults, nave, western rose window and organ of the Cathedral of Our Lady of Amiens (Amiens Cathedral) in Amiens, France.",
+    "accessed": "2026-11-11"
+  },
+  "chartres": {
+    "file": "commons/chartres.jpg",
+    "title": "Chartres_Cathédrale_Notre-Dame_de_Chartres_Innen_Langhaus_Gewölbe.jpg",
+    "credit": "Zairon",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Chartres_Cath%C3%A9drale_Notre-Dame_de_Chartres_Innen_Langhaus_Gew%C3%B6lbe.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Chartres_Cath%C3%A9drale_Notre-Dame_de_Chartres_Innen_Langhaus_Gew%C3%B6lbe.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "description": "Vault of the Cathedral of Our Lady, Chartres, Department of Eure-et-Loire, Region of Centre-Loire Valley, France",
+    "accessed": "2026-11-11"
+  },
+  "gloucester-early": {
+    "file": "commons/gloucester-early.jpg",
+    "title": "Cathedral_Church_of_St_Peter_and_the_Holy_and_Indivisible_Trinity,_Nave_from_the_East_Gloucester_1245952_20230819_0320.jpg",
+    "credit": "Tilman2007",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Cathedral_Church_of_St_Peter_and_the_Holy_and_Indivisible_Trinity,_Nave_from_the_East_Gloucester_1245952_20230819_0320.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Cathedral_Church_of_St_Peter_and_the_Holy_and_Indivisible_Trinity%2C_Nave_from_the_East_Gloucester_1245952_20230819_0320.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "description": "Cathedral Church of St Peter and the Holy and Indivisible Trinity, Nave from the East, Gloucester",
+    "accessed": "2026-11-11"
+  },
+  "exeter": {
+    "file": "commons/exeter.jpg",
+    "title": "Exeter_Cathedral_nave_vaulted_ceiling.jpg",
+    "credit": "DeFacto",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Exeter_Cathedral_nave_vaulted_ceiling.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Exeter_Cathedral_nave_vaulted_ceiling.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "description": "The vauled ceiling of the nave of Exeter Cathedral",
+    "accessed": "2026-11-11"
+  },
+  "st-giles": {
+    "file": "commons/st-giles.jpg",
+    "title": "St_Giles_Cathedral_-_05.jpg",
+    "credit": "Carlos Delgado",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:St_Giles_Cathedral_-_05.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/1/1f/St_Giles_Cathedral_-_05.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "description": "This is a photo of listed building number",
+    "accessed": "2026-11-11"
+  },
+  "bristol": {
+    "file": "commons/bristol.jpg",
+    "title": "Bristol_Cathedral_chancel_vault_01.jpg",
+    "credit": "Kognos",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Bristol_Cathedral_chancel_vault_01.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/6/65/Bristol_Cathedral_chancel_vault_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "description": "Lierne vaulting in Bristol Cathedral chancel",
+    "accessed": "2026-11-11"
+  },
+  "ely": {
+    "file": "commons/ely.jpg",
+    "title": "Ely_Cathedral_Lady_Chapel,_Cambridgeshire,_UK_-_Diliff.jpg",
+    "credit": "Diliff",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Ely_Cathedral_Lady_Chapel,_Cambridgeshire,_UK_-_Diliff.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/6/63/Ely_Cathedral_Lady_Chapel%2C_Cambridgeshire%2C_UK_-_Diliff.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "description": "The lady chapel of Ely Cathedral, Cambridgeshire, England.",
+    "accessed": "2026-11-11"
+  },
+  "winchester": {
+    "file": "commons/winchester.jpg",
+    "title": "Winchester_-_Cathedral_-_Vault.jpg",
+    "credit": "Benjamin Smith",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Winchester_-_Cathedral_-_Vault.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/d/d6/Winchester_-_Cathedral_-_Vault.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "description": "Winchester (UK) - Cathedral - Vaulted ceiling",
+    "accessed": "2026-11-11"
+  },
+  "wells": {
+    "file": "commons/wells.jpg",
+    "title": "Wells_Cathedral_choir_vault_Oct_2021.jpg",
+    "credit": "Bellminsterboy",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Wells_Cathedral_choir_vault_Oct_2021.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/5/58/Wells_Cathedral_choir_vault_Oct_2021.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "description": "The unique vault in the choir of Wells Cathedral.",
+    "accessed": "2026-11-11"
+  },
+  "gloucester-net": {
+    "file": "commons/gloucester-net.jpg",
+    "title": "Gloucester_Cathedral_16.jpg",
+    "credit": "Nilfanion",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Gloucester_Cathedral_16.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Gloucester_Cathedral_16.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "description": "The roof of the east end of Gloucester Cathedral",
+    "accessed": "2026-11-11"
+  },
+  "westminster": {
+    "file": "commons/westminster.jpg",
+    "title": "Ceiling_of_Henry_VII_Chapel,_Westminster_Abbey.jpg",
+    "credit": "JRennocks",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Ceiling_of_Henry_VII_Chapel,_Westminster_Abbey.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Ceiling_of_Henry_VII_Chapel%2C_Westminster_Abbey.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "description": "Ceiling of Henry VII Chapel, Westminster Abbey. The fan- and pendant-vaulted ceiling is covered with stone tracery. Flags for members of the Order of the Bath can be seen at the sides.",
+    "accessed": "2026-11-11"
+  },
+  "gloucester": {
+    "file": "commons/gloucester.jpg",
+    "title": "Gloucester_Cathedral_Cloister,_Gloucestershire,_UK_-_Diliff.jpg",
+    "credit": "Diliff",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Gloucester_Cathedral_Cloister,_Gloucestershire,_UK_-_Diliff.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/0/01/Gloucester_Cathedral_Cloister%2C_Gloucestershire%2C_UK_-_Diliff.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "description": "The cloister of Gloucester Cathedral in Gloucestershire, England.",
+    "accessed": "2026-11-11"
+  },
+  "sherborne": {
+    "file": "commons/sherborne.jpg",
+    "title": "Sherborne_Abbey_-_Fan_vault.jpg",
+    "credit": "JackPeasePhotography",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Sherborne_Abbey_-_Fan_vault.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/4/43/Sherborne_Abbey_-_Fan_vault.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "description": "The exquisite great choir fan vault; the earliest major example in Britain. Described by Simon Jenkins as \"finer than any work of the Italian Renaissance\". Redecorated by the Victorians in the 19th century to a medieval design, it is one of the finest works of stone in any religious building in the world.",
+    "accessed": "2026-11-11"
+  },
+  "kings": {
+    "file": "commons/kings.jpg",
+    "title": "Cambridge_King's_College_Chapel.jpg",
+    "credit": "Cc364",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Cambridge_King%27s_College_Chapel.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/7/74/Cambridge_King%27s_College_Chapel.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "description": "Cambridge King's College Chapel",
+    "accessed": "2026-11-11"
+  },
+  "lincoln": {
+    "file": "lincoln-sah-fig11.jpg",
+    "title": "SAH Figure 11 / St Hugh's choir, Lincoln Cathedral",
+    "credit": "‘Deyemi Akande / SAH",
+    "license": "Figure 11 / copyright",
+    "licenseUrl": "https://sah.org/2017/11/20/decorated-vault-ceilings-in-british-cathedrals/",
+    "url": "https://sah.org/2017/11/20/decorated-vault-ceilings-in-british-cathedrals/",
+    "original": "https://sah.org/wp-content/uploads/2025/09/fig-113dbf3adbac8564e5abfcff0000eafba5.jpeg",
+    "description": "St Hugh’s choir, Lincoln Cathedral / Crazy Vault",
+    "rights": "Copyright photograph credited by SAH to the article author. No open license verified. User-requested local research reference; publication permission has not been established.",
+    "sourceProvider": "SAH",
+    "figure": 11,
+    "accessed": "2026-11-11"
+  }
+}

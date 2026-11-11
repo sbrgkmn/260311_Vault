@@ -63,9 +63,6 @@ export function planConstraints(p,{primary=false}={}){
     add(...norm([[.34,.42],[0,1]]));
   }else if(p.id==='winchester'){
     rays([0,.28,.56,.8,1],[.45,1]);
-    path(norm([[.48,0],[.55,.22],[.46,.4],[.7,.55],[.62,.75],[.85,.88],[1,1]]));
-    path(norm([[.77,0],[.82,.22],[.75,.4],[1,.55]]));
-    path(norm([[.46,.4],[.24,.7],[.45,1]]));
   }else if(p.id==='gloucester-net'){
     const knots=norm([[.54,.21],[.35,.44],[.61,.61],[.72,.78],[.54,.85],[.3,1],[0,1]]);
     knots.forEach(k=>add(s,k));path(knots);
@@ -131,7 +128,7 @@ export function triangulatePlan(segments,initial=[]){
     }
     if(poly.length===3&&cross(...poly.map(i=>points[i]))>EPS)faces.push(poly[0],poly[2],poly[1]);
   }
-  return {points,faces,structuralEdges:[...structural].map(k=>k.split(':').map(Number))};
+  return {points,faces,polygons,structuralEdges:[...structural].map(k=>k.split(':').map(Number))};
 }
 
 export function grammarMesh(p,parent){
